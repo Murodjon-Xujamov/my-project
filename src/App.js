@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import TheLayout from "./views/container/TheLayout";
+import { HashRouter, Route, Switch } from "react-router-dom";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <HashRouter>
+      <React.Suspense fallback="">
+        <Switch>
+          <Route
+            path="/"
+            name="Home"
+            render={(props) => <TheLayout {...props} />}
+          />
+          <Route
+            exact
+            path="/404"
+            name="Page 404"
+            // render={(props) => <Page404 {...props} />}
+          />
+          <Route
+            exact
+            path="/500"
+            name="Page 500"
+            // render={(props) => <Page500 {...props} />}
+          />
+        </Switch>
+      </React.Suspense>
+    </HashRouter>
   );
-}
+};
 
 export default App;
