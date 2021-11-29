@@ -1,7 +1,7 @@
 import React from "react";
 
 const Home = React.lazy(() => import("./views/pages/Home"));
-const Product = React.lazy(() => import("./views/pages/Home"));
+const Product = React.lazy(() => import("./views/pages/Product"));
 
 const routes = [
   {

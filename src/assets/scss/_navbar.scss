@@ -1,0 +1,47 @@
+.language_select {
+  margin-left: auto;
+  background-color: #0b7909;
+  outline: none;
+  border: none;
+  color: #fff;
+}
+
+.logo {
+  font-size: 50px;
+  width: 30%;
+}
+.store_region_no_plece {
+  h4 {
+    font-size: 20px;
+    font-weight: 100;
+  }
+  h1 {
+    font-size: 35px;
+    font-family: cursive;
+    margin: 2px 0;
+    color: #ffff00;
+  }
+}
+.call_center_phone_number {
+  display: flex;
+  align-items: center;
+  font-size: 22px;
+  font-weight: 700;
+
+  .call_center_icon {
+    margin-right: 10px;
+  }
+}
+
+.navbar_items_icon {
+  margin-right: 10px;
+}
+
+.active_fixed {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  background-color: #0b7909;
+  z-index: 999;
+}
