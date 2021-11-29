@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 import { COLOR } from "./Variables";
+import Clock from "../../assets/images/clock.jfif";
 
 export const MContainer = styled("div")`
   max-width: 90%;
@@ -102,4 +103,18 @@ export const MProductIcons = styled("div")`
 export const MRow = styled("div")`
   display: flex;
   align-items: center;
+`;
+export const MHomeHeaderPage = styled("div")`
+  width: 100%;
+  height: 90vh;
+  background-image: url(${Clock});
+  background-repeat: no-repeat;
+  background-size: cover;
+`;
+export const MHomePage = styled("div")`
+  width: 100%;
+  height: 90vh;
+  background-image: url(${Clock});
+  background-repeat: no-repeat;
+  background-size: cover;
 `;

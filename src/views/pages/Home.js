@@ -13,6 +13,8 @@ import {
   MProductPrice,
   MProductIcons,
   MRow,
+  MHomePage,
+  MHomeHeaderPage,
 } from "../element/Container";
 import { FiHeart } from "react-icons/fi";
 import { FaShoppingCart, FaRegCommentDots } from "react-icons/fa";
@@ -31,12 +33,8 @@ const Home = () => {
   window.addEventListener("scroll", changeScrollNavbar);
   return (
     <>
-      <div
-        className={`home_page_header ${
-          paddingTop ? "home_page_header_padding_top" : ""
-        }`}
-      >
-        <div className="home_page_color">
+      <MHomeHeaderPage>
+        <MHomePage paddingTop={paddingTop} className="home_page_color">
           <MContainer>
             <h1 className="home_page_text_info">
               Eng
@@ -48,8 +46,8 @@ const Home = () => {
               <span className="home_page_text_info_border_bottom">magazin</span>
             </h1>
           </MContainer>
-        </div>
-      </div>
+        </MHomePage>
+      </MHomeHeaderPage>
       <MInformationsContainer>
         <MInformations>Yangi mahsulotlar</MInformations>
       </MInformationsContainer>
