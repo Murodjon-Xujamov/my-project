@@ -15,6 +15,8 @@ import {
   MRow,
   MHomePage,
   MHomeHeaderPage,
+  MHomeHeaderImage,
+  MInformationsContainerOne,
 } from "../element/Container";
 import { FiHeart } from "react-icons/fi";
 import { FaShoppingCart, FaRegCommentDots } from "react-icons/fa";
@@ -22,6 +24,7 @@ import image from "../../assets/images/product.jpg";
 
 const Home = () => {
   const [paddingTop, setPaddingTop] = useState(false);
+  const [paddingTopResponse, setPaddingTopResponse] = useState(false);
 
   const changeScrollNavbar = () => {
     if (window.scrollY >= 202) {
@@ -31,26 +34,42 @@ const Home = () => {
     }
   };
   window.addEventListener("scroll", changeScrollNavbar);
+
+  const changeScrollNavbarResponse = () => {
+    if (window.scrollY >= 50) {
+      setPaddingTopResponse(true);
+    } else {
+      setPaddingTopResponse(false);
+    }
+  };
+  window.addEventListener("scroll", changeScrollNavbarResponse);
+
   return (
     <>
-      <MHomeHeaderPage>
-        <MHomePage paddingTop={paddingTop} className="home_page_color">
-          <MContainer>
-            <h1 className="home_page_text_info">
-              Eng
-              <span className="home_page_text_info_color_yellow">
-                {" "}
-                yaxshi
-              </span>{" "}
-              va eng <br /> yuqori darajali online <br />
-              <span className="home_page_text_info_border_bottom">magazin</span>
-            </h1>
-          </MContainer>
-        </MHomePage>
+      <MHomeHeaderPage paddingTop={paddingTop}>
+        <MHomeHeaderImage>
+          <MHomePage className="home_page_color">
+            <MContainer>
+              <h1 className="home_page_text_info">
+                Eng
+                <span className="home_page_text_info_color_yellow">
+                  {" "}
+                  yaxshi
+                </span>{" "}
+                va eng <br /> yuqori darajali online <br />
+                <span className="home_page_text_info_border_bottom">
+                  magazin
+                </span>
+              </h1>
+            </MContainer>
+          </MHomePage>
+        </MHomeHeaderImage>
       </MHomeHeaderPage>
-      <MInformationsContainer>
+
+      <MInformationsContainerOne paddingTopResponse={paddingTopResponse}>
         <MInformations>Yangi mahsulotlar</MInformations>
-      </MInformationsContainer>
+      </MInformationsContainerOne>
+
       <MContainer>
         <MGridFour>
           {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14].map((n) => (

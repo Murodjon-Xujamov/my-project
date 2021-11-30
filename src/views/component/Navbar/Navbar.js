@@ -8,18 +8,20 @@ import {
   MNavbarSelectDropdown,
   MNavItem,
   MNavbarSelectContainer,
+  MHeaderResponse,
 } from "../../element/Container";
 import "../../../assets/scss/_navbar.scss";
 import { FiPhoneCall } from "react-icons/fi";
 import { FaHouseUser } from "react-icons/fa";
 import { GiCrystalBars } from "react-icons/gi";
 import { SiTheregister } from "react-icons/si";
-import { MdProductionQuantityLimits } from "react-icons/md";
+import { MdProductionQuantityLimits, MdManageSearch } from "react-icons/md";
 import { DiAptana } from "react-icons/di";
 import Logo from "../../../assets/images/sample-logo-white.png";
 
 const Navbar = () => {
   const [fixedNavbar, setFixedNavbar] = useState(false);
+  const [fixedNavbarResponse, setFixedNavbarResponse] = useState(false);
 
   const changeScrollNavbar = () => {
     if (window.scrollY >= 202) {
@@ -28,11 +30,31 @@ const Navbar = () => {
       setFixedNavbar(false);
     }
   };
+
   window.addEventListener("scroll", changeScrollNavbar);
+  const changeScrollNavbarResponse = () => {
+    if (window.scrollY >= 50) {
+      setFixedNavbarResponse(true);
+    } else {
+      setFixedNavbarResponse(false);
+    }
+  };
+  window.addEventListener("scroll", changeScrollNavbarResponse);
   return (
     <MNavbar>
       <MContainer>
         <MNavbarCollapse>
+          <div className="navbar_response_logo">Logo</div>
+          <div className="search_container">
+            <input
+              type="text"
+              placeholder="search"
+              className="navbar_response_search"
+            />
+            <div className="search_icon">
+              <MdManageSearch size={25} />
+            </div>
+          </div>
           <select className="language_select">
             <option>UZB</option>
             <option>RUS</option>
@@ -57,24 +79,31 @@ const Navbar = () => {
           </MHeaderInfo>
         </MContainer>
       </MHeader>
-      <MNavbarSelectDropdown className={fixedNavbar ? "active_fixed" : ""}>
+      <MNavbarSelectDropdown
+        positionFixed={fixedNavbar}
+        positionFixedResponse={fixedNavbarResponse}
+      >
         <MContainer>
           <MNavbarSelectContainer>
             <MNavItem to="/product">
-              <GiCrystalBars className="navbar_items_icon" /> Kategoryalar
+              <GiCrystalBars className="navbar_items_icon" />
+              <span className="navbar_items_text">Kategoryalar</span>
             </MNavItem>
             <MNavItem to="/product">
               <MdProductionQuantityLimits className="navbar_items_icon" />
-              Mahsulot
+              <span className="navbar_items_text">Mahsulot</span>
             </MNavItem>
             <MNavItem to="/product">
-              <DiAptana className="navbar_items_icon" /> Sozlamalar
+              <DiAptana className="navbar_items_icon" />{" "}
+              <span className="navbar_items_text">Sozlamalar</span>
             </MNavItem>
             <MNavItem to="/product">
-              <FaHouseUser className="navbar_items_icon" /> Foydalunuvchi
+              <FaHouseUser className="navbar_items_icon" />{" "}
+              <span className="navbar_items_text">Foydalunuvchi </span>
             </MNavItem>
             <MNavItem to="/product">
-              <SiTheregister className="navbar_items_icon" /> Ruyhatdan o'tish
+              <SiTheregister className="navbar_items_icon" />{" "}
+              <span className="navbar_items_text">Ruyhatdan o'tish</span>
             </MNavItem>
           </MNavbarSelectContainer>
         </MContainer>
