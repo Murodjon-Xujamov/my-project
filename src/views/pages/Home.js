@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "../../assets/scss/_home.scss";
 import {
   MContainer,
@@ -16,37 +16,17 @@ import {
   MHomePage,
   MHomeHeaderPage,
   MHomeHeaderImage,
-  MInformationsContainerOne,
+  MButton,
+  MLink,
 } from "../element/Container";
 import { FiHeart } from "react-icons/fi";
 import { FaShoppingCart, FaRegCommentDots } from "react-icons/fa";
 import image from "../../assets/images/product.jpg";
 
 const Home = () => {
-  const [paddingTop, setPaddingTop] = useState(false);
-  const [paddingTopResponse, setPaddingTopResponse] = useState(false);
-
-  const changeScrollNavbar = () => {
-    if (window.scrollY >= 202) {
-      setPaddingTop(true);
-    } else {
-      setPaddingTop(false);
-    }
-  };
-  window.addEventListener("scroll", changeScrollNavbar);
-
-  const changeScrollNavbarResponse = () => {
-    if (window.scrollY >= 50) {
-      setPaddingTopResponse(true);
-    } else {
-      setPaddingTopResponse(false);
-    }
-  };
-  window.addEventListener("scroll", changeScrollNavbarResponse);
-
   return (
     <>
-      <MHomeHeaderPage paddingTop={paddingTop}>
+      <MHomeHeaderPage>
         <MHomeHeaderImage>
           <MHomePage className="home_page_color">
             <MContainer>
@@ -66,9 +46,9 @@ const Home = () => {
         </MHomeHeaderImage>
       </MHomeHeaderPage>
 
-      <MInformationsContainerOne paddingTopResponse={paddingTopResponse}>
+      <MInformationsContainer>
         <MInformations>Yangi mahsulotlar</MInformations>
-      </MInformationsContainerOne>
+      </MInformationsContainer>
 
       <MContainer>
         <MGridFour>
@@ -86,6 +66,11 @@ const Home = () => {
                   <FaShoppingCart />
                   <FaRegCommentDots />
                 </MProductIcons>
+                <MLink to="/order-product">
+                  <div className="product_order_button">
+                    <MButton>Buyurtma berish</MButton>
+                  </div>
+                </MLink>
               </MProductCardBody>
             </MProductCard>
           ))}
@@ -117,6 +102,9 @@ const Home = () => {
                   <FaShoppingCart />
                   <FaRegCommentDots />
                 </MProductIcons>
+                <div className="product_order_button">
+                  <MButton>Buyurtma berish</MButton>
+                </div>
               </MProductCardBody>
             </MProductCard>
           ))}
@@ -140,6 +128,9 @@ const Home = () => {
                   <FaShoppingCart />
                   <FaRegCommentDots />
                 </MProductIcons>
+                <div className="product_order_button">
+                  <MButton>Buyurtma berish</MButton>
+                </div>
               </MProductCardBody>
             </MProductCard>
           ))}

@@ -55,3 +55,15 @@ h6 {
   color: #000;
   background: transparent;
 }
+
+@media only screen and (min-width: 568px) {
+  .main_content {
+    margin-top: 65px;
+  }
+}
+
+@media only screen and (max-width: 568px) {
+  .main_content_response {
+    margin-top: 75px;
+  }
+}

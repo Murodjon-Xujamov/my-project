@@ -1,0 +1,15 @@
+.carousel_image {
+  object-fit: cover;
+}
+.order_product_title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 0;
+}
+
+.product_order_form {
+  h2 {
+    margin-bottom: 15px;
+  }
+}

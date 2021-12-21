@@ -26,6 +26,7 @@ export const MNavItem = styled(NavLink)`
   color: white;
   display: flex;
   align-items: center;
+  position: relative;
 `;
 
 export const MHeader = styled("header")`
@@ -77,12 +78,7 @@ export const MInformationsContainer = styled("div")`
   }
 `;
 
-export const MInformationsContainerOne = styled("div")`
-  @media only screen and (max-width: 568px) {
-    margin-top: ${(props) => (props.paddingTopResponse ? "70px" : "")};
-    padding: 10px 0;
-  }
-`;
+export const MInformationsContainerOne = styled("div")``;
 
 export const MInformations = styled("div")`
   background: ${COLOR.Green};
@@ -99,6 +95,7 @@ export const MGridFour = styled("div")`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 20px;
+  margin-top: 10px;
 
   @media only screen and (max-width: 900px) {
     grid-template-columns: 1fr 1fr 1fr;
@@ -110,6 +107,7 @@ export const MGridFour = styled("div")`
 
   @media only screen and (max-width: 568px) {
     grid-template-columns: 1fr 1fr;
+    gap: 10px;
   }
 `;
 
@@ -117,6 +115,22 @@ export const MGridThree = styled("div")`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 20px;
+
+  @media only screen and (max-width: 568px) {
+    grid-template-columns: 1fr;
+    margin-top: 10px;
+  }
+`;
+
+export const MGrid = styled("div")`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+
+  @media only screen and (max-width: 568px) {
+    grid-template-columns: 1fr;
+    margin-top: 10px;
+  }
 `;
 
 export const MProductCard = styled("div")`
@@ -126,13 +140,24 @@ export const MProductCard = styled("div")`
   border-radius: 6px;
   position: relative;
 `;
+
+export const MProductPriceGalery = styled("div")`
+  background: #fff;
+  padding: 5px 10px;
+  position: absolute;
+  z-index: 999px;
+  bottom: 10px;
+  right: 10px;
+  border-radius: 5px;
+  font-size: 15px;
+`;
 export const MProductCardImage = styled("div")`
   border-radius: 5px;
   overflow: hidden;
+  position: relative;
 `;
 export const MImg = styled("img")`
   width: 100%;
-  height: auto;
   object-fit: cover;
 `;
 export const MProductCardBody = styled("div")`
@@ -154,6 +179,7 @@ export const MProductIcons = styled("div")`
 export const MRow = styled("div")`
   display: flex;
   align-items: center;
+  justify-content: space-between;
 `;
 export const MHeaderResponse = styled("div")``;
 export const MHomeHeaderPage = styled("div")`
@@ -192,6 +218,9 @@ export const MFooter = styled("div")`
   background-repeat: no-repeat;
   background-size: cover;
   margin-top: 50px;
+  @media only screen and (max-width: 568px) {
+    margin-top: 30px;
+  }
 `;
 export const MFooterColor = styled("div")`
   width: 100%;
@@ -211,6 +240,10 @@ export const MFooterTitle = styled("h1")`
   font-style: italic;
   font-variant: petite-caps;
   margin: 30px 0;
+  @media only screen and (max-width: 568px) {
+    font-size: 40px;
+    margin: 12px 0;
+  }
 `;
 export const MFooterText = styled("h5")`
   color: #e7e3e8;
@@ -222,10 +255,74 @@ export const MFooterText = styled("h5")`
   &:hover {
     color: white;
   }
+
+  @media only screen and (max-width: 568px) {
+    font-size: 15px;
+    margin: 6px 0;
+  }
 `;
 export const MFooterBottom = styled("h5")`
   color: white;
   font-size: 15px;
   margin: 30px 0 0 0;
   text-align: center;
+  padding-bottom: 15px;
+`;
+export const MCardCategory = styled("div")`
+  box-shadow: 2px 2px 6px rgb(0 0 0 / 30%);
+  border-radius: 5px;
+  padding: 10px;
+  overflow: hidden;
+  height: 80px;
+`;
+
+export const MButton = styled("button")`
+  padding: 7px 15px;
+  border: 1px solid ${COLOR.Green};
+  background-color: ${COLOR.Green};
+  outline: none;
+  width: -webkit-fill-available;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.5s;
+
+  &:hover {
+    background-color: transparent;
+    border: 1px solid ${COLOR.Green};
+    color: black;
+    box-shadow: 2px 2px 6px rgb(0 0 0 / 30%);
+  }
+`;
+
+export const MLink = styled(NavLink)``;
+
+export const MLabel = styled("label")`
+  display: block;
+`;
+
+export const MInput = styled("input")`
+  box-shadow: 2px 2px 6px rgb(0 0 0 / 30%);
+  padding: 15px;
+  border-radius: 15px;
+  display: block;
+  border: 1px solid ${COLOR.Green};
+  outline: none;
+  margin-top: 10px;
+  width: -webkit-fill-available;
+`;
+
+export const MSelect = styled("select")`
+  box-shadow: 2px 2px 6px rgb(0 0 0 / 30%);
+  padding: 15px;
+  border-radius: 15px;
+  display: block;
+  border: 1px solid ${COLOR.Green};
+  outline: none;
+  margin-top: 10px;
+  width: -webkit-fill-available;
+`;
+
+export const MFormGroup = styled("div")`
+  margin-top: 15px;
 `;

@@ -1,10 +1,35 @@
-import React, { Suspense } from "react";
+import React, { Suspense, useState } from "react";
 import { Redirect, Route, Switch } from "react-router-dom";
 import routes from "../../routes";
+import "../../assets/scss/_navbar.scss";
 
 const TheContent = () => {
+  const [fixedNavbar, setFixedNavbar] = useState(false);
+  const [fixedNavbarResponse, setFixedNavbarResponse] = useState(false);
+
+  const changeScrollNavbar = () => {
+    if (window.scrollY >= 202) {
+      setFixedNavbar(true);
+    } else {
+      setFixedNavbar(false);
+    }
+  };
+
+  window.addEventListener("scroll", changeScrollNavbar);
+  const changeScrollNavbarResponse = () => {
+    if (window.scrollY >= 50) {
+      setFixedNavbarResponse(true);
+    } else {
+      setFixedNavbarResponse(false);
+    }
+  };
+  window.addEventListener("scroll", changeScrollNavbarResponse);
   return (
-    <main className="c-main p-0 main_content">
+    <main
+      className={`main_content_g ${
+        fixedNavbarResponse ? "main_content_response" : ""
+      } ${fixedNavbar ? "main_content" : ""}`}
+    >
       <Suspense fallback="">
         <Switch>
           {routes.map((route, idx) => {

@@ -70,3 +70,31 @@
     display: none;
   }
 }
+.acteve_link {
+  color: #ffff00;
+}
+
+#dropdown_register_shop:hover #dropdown_register {
+  display: block;
+  transition: display 2s;
+}
+
+#dropdown_register {
+  position: absolute;
+  background-color: aliceblue;
+  padding: 10px;
+  top: 40px;
+  z-index: 1000;
+  border-radius: 7px;
+  color: black;
+  display: none;
+
+  .dropdown_register_text {
+    color: black;
+    padding: 5px 3px;
+  }
+
+  @media only screen and (max-width: 568px) {
+    left: -120px;
+  }
+}

@@ -8,20 +8,19 @@ import {
   MNavbarSelectDropdown,
   MNavItem,
   MNavbarSelectContainer,
-  MHeaderResponse,
 } from "../../element/Container";
 import "../../../assets/scss/_navbar.scss";
 import { FiPhoneCall } from "react-icons/fi";
-import { FaHouseUser } from "react-icons/fa";
-import { GiCrystalBars } from "react-icons/gi";
+import { AiOutlineHome, AiFillHeart } from "react-icons/ai";
 import { SiTheregister } from "react-icons/si";
-import { MdProductionQuantityLimits, MdManageSearch } from "react-icons/md";
-import { DiAptana } from "react-icons/di";
+import { MdManageSearch, MdShoppingCart } from "react-icons/md";
+import { BiCategoryAlt } from "react-icons/bi";
 import Logo from "../../../assets/images/sample-logo-white.png";
 
 const Navbar = () => {
   const [fixedNavbar, setFixedNavbar] = useState(false);
   const [fixedNavbarResponse, setFixedNavbarResponse] = useState(false);
+  const [acteveLink, setActeveLink] = useState("home");
 
   const changeScrollNavbar = () => {
     if (window.scrollY >= 202) {
@@ -44,7 +43,9 @@ const Navbar = () => {
     <MNavbar>
       <MContainer>
         <MNavbarCollapse>
-          <div className="navbar_response_logo">Logo</div>
+          <MNavItem to="/">
+            <div className="navbar_response_logo">Logo</div>
+          </MNavItem>
           <div className="search_container">
             <input
               type="text"
@@ -85,25 +86,68 @@ const Navbar = () => {
       >
         <MContainer>
           <MNavbarSelectContainer>
-            <MNavItem to="/product">
-              <GiCrystalBars className="navbar_items_icon" />
-              <span className="navbar_items_text">Kategoryalar</span>
+            <MNavItem to="/" onClick={() => setActeveLink("home")}>
+              <AiOutlineHome
+                className={`navbar_items_icon ${
+                  acteveLink === "home" ? "acteve_link" : ""
+                }`}
+              />
+              <span className="navbar_items_text">Home</span>
             </MNavItem>
-            <MNavItem to="/product">
-              <MdProductionQuantityLimits className="navbar_items_icon" />
+            <MNavItem to="/product" onClick={() => setActeveLink("product")}>
+              <MdShoppingCart
+                className={`navbar_items_icon ${
+                  acteveLink === "product" ? "acteve_link" : ""
+                }`}
+              />
               <span className="navbar_items_text">Mahsulot</span>
             </MNavItem>
-            <MNavItem to="/product">
-              <DiAptana className="navbar_items_icon" />{" "}
-              <span className="navbar_items_text">Sozlamalar</span>
+            <MNavItem to="/category" onClick={() => setActeveLink("category")}>
+              <BiCategoryAlt
+                className={`navbar_items_icon ${
+                  acteveLink === "category" ? "acteve_link" : ""
+                }`}
+              />{" "}
+              <span className="navbar_items_text">Kategoriya</span>
             </MNavItem>
-            <MNavItem to="/product">
-              <FaHouseUser className="navbar_items_icon" />{" "}
-              <span className="navbar_items_text">Foydalunuvchi </span>
+            <MNavItem to="/category" onClick={() => setActeveLink("user")}>
+              <AiFillHeart
+                className={`navbar_items_icon ${
+                  acteveLink === "user" ? "acteve_link" : ""
+                }`}
+              />{" "}
+              <span className="navbar_items_text">Sevimlilar</span>
             </MNavItem>
-            <MNavItem to="/product">
-              <SiTheregister className="navbar_items_icon" />{" "}
+            <MNavItem
+              to="/product"
+              onClick={() => setActeveLink("register")}
+              id="dropdown_register_shop"
+            >
+              <SiTheregister
+                className={`navbar_items_icon ${
+                  acteveLink === "register" ? "acteve_link" : ""
+                }`}
+              />{" "}
               <span className="navbar_items_text">Ruyhatdan o'tish</span>
+              <div id="dropdown_register">
+                <MNavItem to="/">
+                  <span className="dropdown_register_text">
+                    Ruyhatdan o'tish{" "}
+                  </span>
+                </MNavItem>
+                <MNavItem to="/">
+                  <span className="dropdown_register_text">Sozlamalar</span>
+                </MNavItem>
+                <MNavItem to="/">
+                  <span className="dropdown_register_text">Murojat uchun</span>
+                </MNavItem>
+                <MNavItem to="/">
+                  <span className="dropdown_register_text">Admenlar uchun</span>
+                </MNavItem>
+                <MNavItem to="/">
+                  <span className="dropdown_register_text">Chiqish</span>
+                </MNavItem>
+              </div>
             </MNavItem>
           </MNavbarSelectContainer>
         </MContainer>
