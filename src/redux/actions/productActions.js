@@ -32,20 +32,3 @@ export const fetchProductOne = (id) => (dispatch) => {
       dispatch({ type: "fetch_one_product_error", payload: message });
     });
 };
-
-// Update product
-export const updateProduct = (id) => (dispatch) => {
-  dispatch({ type: "update_product_start", payload: id });
-
-  requests
-    .updateProduct(id)
-    .then(({ data }) => {
-      dispatch({ type: "update_product_success", payload: data });
-      toast.success("Saqlandi");
-    })
-    .catch(({ response }) => {
-      let message = (response && response.data.message) || "Mahsulot topilmadi";
-      toast.error(message);
-      dispatch({ type: "update_product_error", payload: message });
-    });
-};

@@ -9,7 +9,7 @@ const config = {
 const requests = {
   authPassword: (username) => axios.post(`${url}/auth/register`, username),
   authLogin: (username) => axios.post(`${url}/auth/login`, username),
-  getMe: () => axios.get(`${url}/auth/login`),
+  getMe: () => axios.get(`${url}/profile`, config),
   users: () => axios.get(`${url}/users`, config),
   userFindOne: (id) => axios.get(`${url}/users/find/${id}`, config),
   updateUser: (id, params) => axios.put(`${url}/users/${id}`, params, config),
@@ -19,7 +19,9 @@ const requests = {
   fetchProductOne: (id) => axios.get(`${url}/products/find/${id}`, config),
   updateProduct: (id) => axios.put(`${url}/products/${id}`, config),
   // Order
-  fetchAllOrders: () => axios.get(`${url}/orders`, config),
+  createOrder: (params) => axios.post(`${url}/orders`, params),
+  // Stream
+  createStream: (params) => axios.post(`${url}/stream`, params),
 };
 
 export default requests;

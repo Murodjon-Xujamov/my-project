@@ -6,6 +6,7 @@ const INITIAL_STATE = {
   message: null,
   sidebarShow: "responsive",
   data: {},
+  userInfo: {},
 };
 
 // eslint-disable-next-line import/no-anonymous-default-export
@@ -43,61 +44,30 @@ export default (state = INITIAL_STATE, { type, payload, ...rest }) => {
         loginStep: 0,
       };
 
-    // users all
-    case "users_info_start":
+    // get me
+    case "profile_info_start":
       return { ...state, loading: true, message: "" };
-    case "users_info_error":
+    case "profile_info_error":
       return { ...state, message: payload, loading: false };
-    case "users_info_success":
+    case "profile_info_success":
       return {
         ...state,
         message: payload.message,
         loading: false,
-        list: payload,
+        userInfo: payload,
       };
 
-    // user update
-    case "user_find_start":
+    // create stream
+    case "create_stream_start":
       return { ...state, loading: true, message: "" };
-    case "user_find_error":
+    case "create_stream_error":
       return { ...state, message: payload, loading: false };
-    case "user_find_success":
+    case "create_stream_success":
       return {
         ...state,
         message: payload.message,
         loading: false,
-        data: payload,
-      };
-    case "user_clear_edit_success":
-      return {
-        ...state,
-        data: {},
-      };
-
-    // user update
-    case "update_user_start":
-      return { ...state, loading: true, message: "" };
-    case "update_user_error":
-      return { ...state, message: payload, loading: false };
-    case "update_user_success":
-      return {
-        ...state,
-        message: payload.message,
-        loading: false,
-      };
-
-    // user delete
-    case "delete_user_start":
-      return { ...state, loading: true, message: "" };
-    case "delete_user_error":
-      return { ...state, message: payload, loading: false };
-    case "delete_user_success":
-      let newList = state.list.filter((item) => item._id !== payload.id);
-      return {
-        ...state,
-        message: payload.message,
-        loading: false,
-        list: newList,
+        userInfo: payload,
       };
 
     // profile

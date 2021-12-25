@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   MContainer,
   MGridFour,
@@ -7,8 +7,19 @@ import {
   MImg,
   MProductPriceGalery,
 } from "../element/Container";
+import { fetchProducts } from "../../redux/actions/productActions";
+import { useDispatch, useSelector } from "react-redux";
 
 const Product = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchProducts());
+  }, []);
+
+  const productItems = useSelector((state) => state.products.list);
+  console.log(productItems);
+
   return (
     <>
       <MContainer>

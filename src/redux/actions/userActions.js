@@ -53,79 +53,21 @@ export const profileInfo = () => (dispatch) => {
     });
 };
 
-// users
-export const users = () => (dispatch) => {
-  dispatch({ type: "users_info_start" });
+// create stream
+export const createStream = (params) => (dispatch) => {
+  dispatch({ type: "create_stream_start", payload: params });
 
   requests
-    .users()
+    .createStream(params)
     .then(({ data }) => {
-      dispatch({ type: "users_info_success", payload: data });
+      dispatch({ type: "create_stream_success", payload: data });
     })
     .catch(({ response }) => {
       let message =
         (response && response.data.message) ||
         "Foydalanuvchi profilini yuklashda xatolik bor";
 
-      dispatch({ type: "users_info_error", payload: message });
-    });
-};
-
-// update user
-export const userFindOne = (id) => (dispatch) => {
-  dispatch({ type: "user_find_start", payload: id });
-
-  requests
-    .userFindOne(id)
-    .then(({ data }) => {
-      dispatch({ type: "user_find_success", payload: data });
-    })
-    .catch(({ response }) => {
-      let message =
-        (response && response.data.message) ||
-        "Foydalanuvchi profilini topib bo'lmadi";
-
-      dispatch({ type: "user_find_error", payload: message });
-    });
-};
-
-// update user
-export const updateUser = (id, params) => (dispatch) => {
-  dispatch({ type: "update_user_start", payload: { id, params } });
-
-  requests
-    .updateUser(id, params)
-    .then(({ data }) => {
-      dispatch({ type: "update_user_success", payload: data });
-      toast.success("Saqlash");
-    })
-    .catch(({ response }) => {
-      let message =
-        (response && response.data.message) ||
-        "Foydalanuvchi profilini o'zgartirib bo'lmadi";
-      toast.error(message);
-
-      dispatch({ type: "update_user_error", payload: message });
-    });
-};
-
-// delete user
-export const deleteUser = (id) => (dispatch) => {
-  dispatch({ type: "delete_user_start", payload: id });
-
-  requests
-    .deleteUser(id)
-    .then(({ data }) => {
-      dispatch({ type: "delete_user_success", payload: { data, id } });
-      toast.success("Uchirildi");
-    })
-    .catch(({ response }) => {
-      let message =
-        (response && response.data.message) ||
-        "Sizga bunaqa rol yuq iltimos uzinggizga kiling";
-      toast.error(message);
-
-      dispatch({ type: "delete_user_error", payload: message });
+      dispatch({ type: "create_stream_error", payload: message });
     });
 };
 

@@ -119,8 +119,8 @@ const Navbar = () => {
               <span className="navbar_items_text">Sevimlilar</span>
             </MNavItem>
             <MNavItem
-              to="/product"
-              onClick={() => setActeveLink("register")}
+              to="/register"
+              // onClick={() => setActeveLink("register")}
               id="dropdown_register_shop"
             >
               <SiTheregister
@@ -129,10 +129,10 @@ const Navbar = () => {
                 }`}
               />{" "}
               <span className="navbar_items_text">Ruyhatdan o'tish</span>
-              <div id="dropdown_register">
-                <MNavItem to="/">
+              {/* <div id="dropdown_register">
+                <MNavItem to="">
                   <span className="dropdown_register_text">
-                    Ruyhatdan o'tish{" "}
+                    Ruyhatdan o'tish
                   </span>
                 </MNavItem>
                 <MNavItem to="/">
@@ -147,7 +147,7 @@ const Navbar = () => {
                 <MNavItem to="/">
                   <span className="dropdown_register_text">Chiqish</span>
                 </MNavItem>
-              </div>
+              </div> */}
             </MNavItem>
           </MNavbarSelectContainer>
         </MContainer>

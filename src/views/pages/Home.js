@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../../assets/scss/_home.scss";
 import {
   MContainer,
@@ -22,8 +22,17 @@ import {
 import { FiHeart } from "react-icons/fi";
 import { FaShoppingCart, FaRegCommentDots } from "react-icons/fa";
 import image from "../../assets/images/product.jpg";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchProducts } from "../../redux/actions/productActions";
 
 const Home = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchProducts());
+  }, []);
+
+  const productItems = useSelector((state) => state.products.list);
   return (
     <>
       <MHomeHeaderPage>
@@ -52,21 +61,21 @@ const Home = () => {
 
       <MContainer>
         <MGridFour>
-          {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14].map((n) => (
-            <MProductCard key={n}>
+          {productItems.map((product, index) => (
+            <MProductCard key={index}>
               <MProductCardImage>
                 <MImg src={image} alt="" />
               </MProductCardImage>
               <div className="product_card_right">New</div>
               <MProductCardBody>
-                <MProductTitle>Murodjon</MProductTitle>
-                <MProductPrice>349.000 so'm</MProductPrice>
+                <MProductTitle>{product.title}</MProductTitle>
+                <MProductPrice>{product.price} so'm</MProductPrice>
                 <MProductIcons>
                   <FiHeart />
                   <FaShoppingCart />
                   <FaRegCommentDots />
                 </MProductIcons>
-                <MLink to="/order-product">
+                <MLink to={`/order-product/` + product._id}>
                   <div className="product_order_button">
                     <MButton>Buyurtma berish</MButton>
                   </div>

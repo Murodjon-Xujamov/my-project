@@ -36,19 +36,6 @@ export default (state = INITIAL_STATE, { type, payload, ...rest }) => {
         data: payload,
       };
 
-    // update product
-    case "update_product_start":
-      return { ...state, loading: true, message: "" };
-    case "update_product_error":
-      return { ...state, message: payload, loading: false };
-    case "update_product_success":
-      return {
-        ...state,
-        message: payload.message,
-        loading: false,
-        data: payload,
-      };
-
     /* other */
     default:
       return state;

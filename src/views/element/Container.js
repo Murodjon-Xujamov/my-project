@@ -278,6 +278,7 @@ export const MCardCategory = styled("div")`
 
 export const MButton = styled("button")`
   padding: 7px 15px;
+  margin-top: ${(props) => (props.marginTop ? "10" : "")}px;
   border: 1px solid ${COLOR.Green};
   background-color: ${COLOR.Green};
   outline: none;
