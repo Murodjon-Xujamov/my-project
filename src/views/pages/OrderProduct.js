@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { useLocation } from "react-router";
+import queryString from "query-string";
 import {
   MContainer,
   MGrid,
@@ -17,20 +19,19 @@ import { fetchProductOne } from "../../redux/actions/productActions";
 import { createOrder } from "../../redux/actions/orderActions";
 
 const OrderProduct = () => {
-  const { id } = useParams();
+  const { productId } = useParams();
+  const location = useLocation();
   const dispatch = useDispatch();
 
+  const stream_user = queryString.parse(location.search);
+
   useEffect(() => {
-    dispatch(fetchProductOne(id));
+    dispatch(fetchProductOne(productId));
   }, []);
 
   const product = useSelector((state) => state.products.data);
-  const [title, setTitle] = useState(product.title);
-  // const [productId, setProductId] = useState(product._id);
-  // const [quantity, setQuantity] = useState(product.price);
   const [customer_name, setCustomer_name] = useState("");
   const [customer_phone, setCustomer_phone] = useState("");
-  console.log(product);
 
   return (
     <MContainer>
@@ -92,10 +93,10 @@ const OrderProduct = () => {
             onClick={() => {
               dispatch(
                 createOrder({
-                  title,
-                  productId: id,
+                  productId,
                   customer_name,
                   customer_phone,
+                  stream_user: stream_user.stream,
                 })
               );
             }}

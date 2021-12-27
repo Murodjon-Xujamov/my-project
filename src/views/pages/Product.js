@@ -18,7 +18,6 @@ const Product = () => {
   }, []);
 
   const productItems = useSelector((state) => state.products.list);
-  console.log(productItems);
 
   return (
     <>

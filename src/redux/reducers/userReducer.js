@@ -57,19 +57,6 @@ export default (state = INITIAL_STATE, { type, payload, ...rest }) => {
         userInfo: payload,
       };
 
-    // create stream
-    case "create_stream_start":
-      return { ...state, loading: true, message: "" };
-    case "create_stream_error":
-      return { ...state, message: payload, loading: false };
-    case "create_stream_success":
-      return {
-        ...state,
-        message: payload.message,
-        loading: false,
-        userInfo: payload,
-      };
-
     // profile
     case "logout":
       return { ...INITIAL_STATE };

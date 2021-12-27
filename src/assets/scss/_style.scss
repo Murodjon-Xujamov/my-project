@@ -17,3 +17,17 @@
 .order_button {
   margin-top: 20px;
 }
+
+.modal_btn_row {
+  display: flex !important;
+  align-items: center !important;
+  margin-top: 20px;
+}
+.stream_input {
+  padding: 5px 20px;
+  margin-top: 10px;
+  width: 80%;
+}
+.modal {
+  z-index: 10000;
+}

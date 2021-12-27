@@ -27,7 +27,7 @@ const routes = [
     component: Category,
   },
   {
-    path: "/order-product/:id",
+    path: "/order-product/:productId",
     exact: true,
     name: "Buyutma",
     component: OrderProduct,

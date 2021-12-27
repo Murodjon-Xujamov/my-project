@@ -54,7 +54,7 @@ export const MNavbarSelectDropdown = styled("div")`
   right: 0;
   left: 0;
   background-color: #0b7909;
-  z-index: 999;
+  z-index: 10;
   @media only screen and (min-width: 568px) {
     position: ${(props) => (props.positionFixed ? "fixed" : "")};
   }
@@ -279,6 +279,7 @@ export const MCardCategory = styled("div")`
 export const MButton = styled("button")`
   padding: 7px 15px;
   margin-top: ${(props) => (props.marginTop ? "10" : "")}px;
+  margin-left: ${(props) => (props.marginLeft ? "10" : "")}px;
   border: 1px solid ${COLOR.Green};
   background-color: ${COLOR.Green};
   outline: none;
