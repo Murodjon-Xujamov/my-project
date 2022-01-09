@@ -16,6 +16,7 @@ import "../../assets/scss/_style.scss";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProductOne } from "../../redux/actions/productActions";
+import { getLocations } from "../../redux/actions/locationActions";
 import { createOrder } from "../../redux/actions/orderActions";
 
 const OrderProduct = () => {
@@ -27,11 +28,15 @@ const OrderProduct = () => {
 
   useEffect(() => {
     dispatch(fetchProductOne(productId));
+    dispatch(getLocations());
   }, []);
 
   const product = useSelector((state) => state.products.data);
+  const locations = useSelector((state) => state.locations.list);
+
   const [customer_name, setCustomer_name] = useState("");
   const [customer_phone, setCustomer_phone] = useState("");
+  const [region_id, setRegion_id] = useState();
 
   return (
     <MContainer>
@@ -84,8 +89,12 @@ const OrderProduct = () => {
           </MFormGroup>
           <MFormGroup>
             <MLabel>Viloyat</MLabel>
-            <MSelect>
-              <option>Toshkent</option>
+            <MSelect onChange={(e) => setRegion_id(e.target.value)}>
+              {locations.map((loc, index) => (
+                <option key={index} value={loc._id}>
+                  {loc.name}
+                </option>
+              ))}
             </MSelect>
           </MFormGroup>
           <MButton
@@ -96,7 +105,8 @@ const OrderProduct = () => {
                   productId,
                   customer_name,
                   customer_phone,
-                  stream_user: stream_user.stream,
+                  region_id,
+                  stream_id: stream_user.stream,
                 })
               );
             }}

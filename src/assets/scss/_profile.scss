@@ -1,0 +1,71 @@
+.section_admin {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.section_admin .admin_boxing {
+  padding: 50px;
+  border-radius: 12px;
+  background-color: #482be7;
+}
+.admin_boxing .admin_user {
+  width: 45%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.admin_user_avatar {
+  width: 150px;
+  border-radius: 50%;
+  height: 150px;
+  overflow: hidden;
+}
+.admin_user_avatar img {
+  width: 100%;
+  height: 100%;
+}
+.admin_user_full_name h2 {
+  color: white;
+  margin-bottom: 10px;
+  letter-spacing: 5px;
+}
+.admin_user_full_name p {
+  color: white;
+}
+.admin_card {
+  background-color: #1e0e62;
+  border-radius: 8px;
+  margin-top: 40px;
+  display: flex;
+  justify-content: space-between;
+  color: white;
+  padding: 50px;
+}
+.admin_card .admin_full_name {
+  color: #a59fc0;
+  margin-bottom: 10px;
+}
+.admin_card .admin_bonus h4 {
+  color: #a59fc0;
+  margin-bottom: 10px;
+}
+.admin_card_boxs {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+}
+.admin_card_boxs .card_box {
+  width: 200px;
+  height: 200px;
+  border-radius: 8px;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  overflow: hidden;
+  cursor: pointer;
+}
+.card_box img {
+  width: 20px;
+  margin-bottom: 20px;
+}

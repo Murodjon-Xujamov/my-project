@@ -16,7 +16,7 @@ const Register = () => {
 
   useEffect(() => {
     if (token !== null) {
-      history.push("/admin");
+      history.push("/profile");
     }
   }, [token]);
 

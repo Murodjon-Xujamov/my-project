@@ -6,6 +6,7 @@ const Category = React.lazy(() => import("./views/pages/Category"));
 const OrderProduct = React.lazy(() => import("./views/pages/OrderProduct"));
 const Register = React.lazy(() => import("./views/pages/Register"));
 const Admin = React.lazy(() => import("./views/pages/Admin"));
+const Profile = React.lazy(() => import("./views/pages/Profile"));
 
 const routes = [
   {
@@ -43,6 +44,12 @@ const routes = [
     exact: true,
     name: "",
     component: Admin,
+  },
+  {
+    path: "/profile",
+    exact: true,
+    name: "",
+    component: Profile,
   },
 ];
 
