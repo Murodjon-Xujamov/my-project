@@ -81,6 +81,10 @@ const OrderProduct = () => {
           <MFormGroup>
             <MLabel>Telifon raqamingiz</MLabel>
             <MInput
+              type="tel"
+              id="phone"
+              name="phone"
+              pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
               placeholder="+998 ** *** ** **"
               onChange={(e) => {
                 setCustomer_phone(e.target.value);
@@ -102,7 +106,7 @@ const OrderProduct = () => {
             onClick={() => {
               dispatch(
                 createOrder({
-                  productId,
+                  product_id: productId,
                   customer_name,
                   customer_phone,
                   region_id,
